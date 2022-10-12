@@ -26,6 +26,7 @@ bld/
 [Oo]bj/
 **/[Bb]in/
 **/[Oo]bj/
+**/[Dd]ebug/
 msbuild.log
 msbuild.err
 msbuild.wrn

@@ -1,7 +1,10 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Api.Common;
 using Api.Model;
+using Google.Cloud.Firestore;
+using Google.Cloud.Firestore.V1;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -27,36 +30,55 @@ namespace Api.Controllers
         [HttpPost("login")]
         public async Task<ActionResult> Post([FromBody] UserLoginRequest user)
         {
-            if (user.UserName == "teste" && user.Password == "teste123")
+            try
             {
-                var issuer = _config.GetValue<string>("Jwt:Issuer");
-                var audience = _config.GetValue<string>("Jwt:Audience");
-                var key = Encoding.ASCII.GetBytes
-                (_config.GetValue<string>("Jwt:Key"));
-                var tokenDescriptor = new SecurityTokenDescriptor
+                FirestoreDb db = FirestoreDb.Create("saleseverywhere-1f568");
+
+                var collection = db.Collection("users");
+
+                var docRef = collection.Document(user.UserName);
+
+                var snapshot = await docRef.GetSnapshotAsync();
+
+                var password = snapshot.GetValue<string>("password");
+                var inputPasswordCrypt = Crypt.CreateMD5(user.Password);
+
+                if (inputPasswordCrypt == password)
                 {
-                    Subject = new ClaimsIdentity(new[]
+                    var issuer = _config.GetValue<string>("Jwt:Issuer");
+                    var audience = _config.GetValue<string>("Jwt:Audience");
+                    var key = Encoding.ASCII.GetBytes
+                    (_config.GetValue<string>("Jwt:Key"));
+                    var tokenDescriptor = new SecurityTokenDescriptor
                     {
-                new Claim("Id", Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-                new Claim(JwtRegisteredClaimNames.Email, user.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti,
-                Guid.NewGuid().ToString())
-             }),
-                    Expires = DateTime.UtcNow.AddMinutes(5),
-                    Issuer = issuer,
-                    Audience = audience,
-                    SigningCredentials = new SigningCredentials
-                    (new SymmetricSecurityKey(key),
-                    SecurityAlgorithms.HmacSha512Signature)
-                };
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var token = tokenHandler.CreateToken(tokenDescriptor);
-                var jwtToken = tokenHandler.WriteToken(token);
-                var stringToken = tokenHandler.WriteToken(token);
-                return Ok(stringToken);
+                        Subject = new ClaimsIdentity(new[]
+                        {
+                            new Claim("Id", Guid.NewGuid().ToString()),
+                            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                            new Claim(JwtRegisteredClaimNames.Email, user.UserName),
+                            new Claim(JwtRegisteredClaimNames.Jti,
+                            Guid.NewGuid().ToString())
+                        }),
+                        Expires = DateTime.UtcNow.AddMinutes(5),
+                        Issuer = issuer,
+                        Audience = audience,
+                        SigningCredentials = new SigningCredentials
+                        (new SymmetricSecurityKey(key),
+                        SecurityAlgorithms.HmacSha512Signature)
+                    };
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var token = tokenHandler.CreateToken(tokenDescriptor);
+                    var jwtToken = tokenHandler.WriteToken(token);
+                    var stringToken = tokenHandler.WriteToken(token);
+                    return Ok(stringToken);
+                }
+                return Unauthorized();
             }
-            return Unauthorized();
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return Unauthorized();
+            }
         }
     }
 }
