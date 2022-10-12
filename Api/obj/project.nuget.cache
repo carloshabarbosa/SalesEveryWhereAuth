@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NNh+f/4BTL/fkppW+iOgSDxs7t+vJ1Uf8AkgMVlqFNKVrJuYH3StR0ZL+0nW6c2cMlx7feerhvqpkNv/FX7aPg==",
+  "dgSpecHash": "D1NkPtWdtDCEzkXbEMKTNQm0oTQyxylONz3QQ+km3EOS290p5h1YxmB43g1pjMngUGr4CYHn2N2/NRpIZBCQ0g==",
   "success": true,
   "projectFilePath": "/home/carlosbarbosa/Projetos/Pessoal/PosGraduacao/SalesEveryWhereAuth/Api/Api.csproj",
   "expectedPackageFiles": [
@@ -18,7 +18,10 @@
     "/home/carlosbarbosa/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "/home/carlosbarbosa/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
     "/home/carlosbarbosa/.nuget/packages/system.identitymodel.tokens.jwt/6.10.0/system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
-    "/home/carlosbarbosa/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    "/home/carlosbarbosa/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "/home/carlosbarbosa/.nuget/packages/microsoft.netcore.app.ref/6.0.9/microsoft.netcore.app.ref.6.0.9.nupkg.sha512",
+    "/home/carlosbarbosa/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.9/microsoft.aspnetcore.app.ref.6.0.9.nupkg.sha512",
+    "/home/carlosbarbosa/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.9/microsoft.netcore.app.host.linux-x64.6.0.9.nupkg.sha512"
   ],
   "logs": []
 }
