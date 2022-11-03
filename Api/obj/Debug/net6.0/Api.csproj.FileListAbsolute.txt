@@ -52,3 +52,4 @@
 /home/carlosbarbosa/Projetos/Pessoal/PosGraduacao/SalesEveryWhereAuth/Api/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
 /home/carlosbarbosa/Projetos/Pessoal/PosGraduacao/SalesEveryWhereAuth/Api/bin/Debug/net6.0/Newtonsoft.Json.dll
 /home/carlosbarbosa/Projetos/Pessoal/PosGraduacao/SalesEveryWhereAuth/Api/bin/Debug/net6.0/System.Linq.Async.dll
+/home/carlosbarbosa/Projetos/Pessoal/PosGraduacao/SalesEveryWhereAuth/Api/bin/Debug/net6.0/appsettings.Release.json

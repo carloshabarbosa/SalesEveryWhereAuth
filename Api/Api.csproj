@@ -14,4 +14,10 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="./firestore-auth.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>  
+  </ItemGroup>
+
 </Project>

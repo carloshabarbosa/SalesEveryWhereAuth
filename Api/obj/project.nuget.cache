@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/UbGSnfNd333ovYC42GvZzsrydwemMnjke5jkExeW1mNQJ70L6YN8Ak6Tiyz8DfNQTQZZt8L+cOt68r6SGRKtg==",
+  "dgSpecHash": "YOdX29M4K6iEkhzqi0nDbc4VNDxz/REsGn6++CxkJp/HsDTMs6vi/ZMGPmC974V8iwkkq3s6LZROEBIrp0ew6Q==",
   "success": true,
   "projectFilePath": "/home/carlosbarbosa/Projetos/Pessoal/PosGraduacao/SalesEveryWhereAuth/Api/Api.csproj",
   "expectedPackageFiles": [
@@ -41,10 +41,7 @@
     "/home/carlosbarbosa/.nuget/packages/system.linq.async/6.0.1/system.linq.async.6.0.1.nupkg.sha512",
     "/home/carlosbarbosa/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/home/carlosbarbosa/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "/home/carlosbarbosa/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
-    "/home/carlosbarbosa/.nuget/packages/microsoft.netcore.app.ref/6.0.9/microsoft.netcore.app.ref.6.0.9.nupkg.sha512",
-    "/home/carlosbarbosa/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.9/microsoft.aspnetcore.app.ref.6.0.9.nupkg.sha512",
-    "/home/carlosbarbosa/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.9/microsoft.netcore.app.host.linux-x64.6.0.9.nupkg.sha512"
+    "/home/carlosbarbosa/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

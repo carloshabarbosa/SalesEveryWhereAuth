@@ -16,10 +16,13 @@ namespace Api.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IConfiguration _config;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AuthController(IConfiguration confg)
+        public AuthController(IConfiguration confg,
+        IWebHostEnvironment webHostEnvironment)
         {
             _config = confg;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         /// <summary>
@@ -32,6 +35,16 @@ namespace Api.Controllers
         {
             try
             {
+                string path = _webHostEnvironment.ContentRootPath;
+
+                string filename = "firestore-auth.json";
+
+                string fullfile = Path.Combine(path, filename);
+
+                Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", fullfile);
+
+                Console.WriteLine(fullfile);
+
                 FirestoreDb db = FirestoreDb.Create("saleseverywhere-1f568");
 
                 var collection = db.Collection("users");
